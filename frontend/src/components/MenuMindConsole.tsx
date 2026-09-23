@@ -1494,11 +1494,10 @@ export const MenuMindConsole: React.FC<MenuMindConsoleProps> = ({ killSwitchActi
         </div>
 
         <div className="flex items-center gap-3 font-mono-code text-[11px]">
-          {/* ElevenLabs Voice Badge */}
           <div className="bg-[var(--paper-2)] border border-[var(--rule)] px-2 py-0.5 rounded-[2px] flex items-center gap-1.5 text-[var(--ink)]">
-            <Radio className="w-3.5 h-3.5 text-rose-700 animate-pulse" />
-            <span>VOICE:</span>
-            <strong>ElevenLabs George (Authoritative British)</strong>
+            <Sparkles className="w-3.5 h-3.5 text-amber-700" />
+            <span>ENGINE:</span>
+            <strong>Claude Opus 5.5 + Qwen3-VL</strong>
           </div>
 
           <span className="bg-[var(--paper-2)] border border-[var(--rule)] px-2 py-0.5 rounded-[2px]">
@@ -1764,14 +1763,7 @@ export const MenuMindConsole: React.FC<MenuMindConsoleProps> = ({ killSwitchActi
 
               {/* Action Buttons: ElevenLabs Voice & Audit Receipt */}
               <div className="flex items-center gap-2">
-                <button
-                  onClick={() => handlePlayElevenLabsAudio('satay')}
-                  className="px-2.5 py-1.5 bg-[var(--paper)] border border-[var(--rule-strong)] text-xs font-mono-code flex items-center gap-1.5 hover:bg-[var(--paper-2)] rounded-[2px]"
-                  title="Play ElevenLabs Studio Audio Alert"
-                >
-                  <Volume2 className="w-3.5 h-3.5 text-rose-700" />
-                  <span>Replay ElevenLabs Voice Alert</span>
-                </button>
+                
 
                 <button
                   onClick={() => setShowReceiptModal(true)}
