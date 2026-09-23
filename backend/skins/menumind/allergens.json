@@ -1,0 +1,20 @@
+{
+  "ids": [
+    "gluten",
+    "crustaceans",
+    "eggs",
+    "fish",
+    "peanuts",
+    "soybeans",
+    "milk",
+    "nuts",
+    "celery",
+    "mustard",
+    "sesame",
+    "sulphites",
+    "lupin",
+    "molluscs"
+  ],
+  "unknown": "unknown",
+  "animal_derived": ["crustaceans", "eggs", "fish", "milk", "molluscs"]
+}

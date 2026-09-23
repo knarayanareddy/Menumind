@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="layout">
+  <aside class="intake">
+    <p class="hint">{{ intake_hint }}</p>
+    {% if error %}<p class="err">{{ error }}</p>{% endif %}
+    <form method="post" action="/jobs/hostile">
+      {% if demo_token_set %}
+      <label for="token_h">Demo token</label>
+      <input id="token_h" type="text" name="token" autocomplete="off">
+      {% endif %}
+      <button type="submit">Open hostile fixture</button>
+    </form>
+    <form method="post" action="/jobs" enctype="multipart/form-data">
+      {% if demo_token_set %}
+      <label for="token">Demo token</label>
+      <input id="token" type="text" name="token" autocomplete="off">
+      {% endif %}
+      <label for="json_text">JSON</label>
+      <textarea id="json_text" name="json_text" placeholder='{"title":"…","description":"…"}'></textarea>
+      <label for="upload">File (image, pdf, txt, json)</label>
+      <input id="upload" type="file" name="upload">
+      <p class="hint">The server will not fetch a URL.</p>
+      <button type="submit">Run</button>
+    </form>
+  </aside>
+  <main class="work">
+    {% if job %}
+      <article class="card">
+        <p>
+          <span class="action {{ job.policy.action.value }}">{{ job.policy.action.value | upper }}</span>
+          <span class="operator">Model recommendation. You are the operator.</span>
+        </p>
+        {% if job.unconfigured %}<p class="hint">Judge unconfigured — Token Factory key not set. Receipt does not claim a live model.</p>{% endif %}
+        {% if job.display.get('not_legal_advice') %}
+        <p class="operator">Not legal advice. Counsel classifies.</p>
+        {% endif %}
+        <h2>{{ job.display['title'] or "job" }}</h2>
+        {% if job.display.get('price') is not none %}
+        <p class="codes">{{ job.display.get('price') }} · bucket {{ job.display.get('bucket') or "—" }}</p>
+        {% endif %}
+        {% if job.display.get('quote') %}
+        <blockquote class="quote{% if job.display.get('walkaway') %} walkaway{% endif %}">{{ job.display['quote'] }}</blockquote>
+        <p class="codes">{{ job.display.get('locator') }} · {{ job.display.get('topic') }}</p>
+        {% else %}
+        <div class="desc">{{ job.display['description'] or "" }}</div>
+        {% endif %}
+        {% if job.display.get('items') %}
+        <table>
+          <thead>
+            <tr><th scope="col">item</th><th scope="col">allergens</th><th scope="col">publishable</th></tr>
+          </thead>
+          <tbody>
+            {% for item in job.display['items'] %}
+            <tr class="ticket">
+              <td>{{ item.name }}</td>
+              <td>
+                {% if item.unknown %}<span class="unknown-chip">UNKNOWN</span>{% endif %}
+                {{ item.allergens | join(", ") }}
+              </td>
+              <td>no</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <p><button type="button" disabled>Publish (disabled — catalog not live on Tuesday)</button></p>
+        {% endif %}
+        <p class="codes">{{ job.policy.reason_codes | join(" · ") }}</p>
+        {% if job.generate_text %}<p class="desc">{{ job.generate_text }}</p>{% endif %}
+        <form method="post" action="/jobs/{{ job.id }}/accept" style="display:inline">
+          {% if demo_token_set %}
+          <label for="token_a">Demo token</label>
+          <input id="token_a" type="text" name="token" autocomplete="off">
+          {% endif %}
+          <button type="submit">Accept</button>
+        </form>
+        <form method="post" action="/jobs/{{ job.id }}/override" style="display:inline">
+          {% if demo_token_set %}
+          <label for="token_o">Demo token</label>
+          <input id="token_o" type="text" name="token" autocomplete="off">
+          {% endif %}
+          <button class="secondary" type="submit">Override to queue</button>
+        </form>
+        <p class="operator">
+          <a href="/jobs/{{ job.id }}">receipt</a>
+          ·
+          <a href="/exhibit/{{ job.id }}">exhibit.json</a>
+        </p>
+        {% if reviews %}
+          <p class="codes">
+            {% for r in reviews %}{{ r.actor }} {{ r.name }} {{ r.decision }} {{ r.ts }}{% endfor %}
+          </p>
+        {% endif %}
+      </article>
+    {% else %}
+      <p class="hint">No job yet. Open the hostile fixture first.</p>
+    {% endif %}
+  </main>
+</div>
+{% if job %}
+<div class="receipt-strip">{{ job.id }} · {{ job.policy.action.value | upper }} · {{ job.receipt.model_ids.judge }}</div>
+{% endif %}
+{% endblock %}

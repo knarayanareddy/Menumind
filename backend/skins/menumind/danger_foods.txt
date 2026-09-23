@@ -1,0 +1,6 @@
+# Foods whose names can be peanut-risky when the model misses the satay heuristic.
+# Policy fallback is fail-closed: these become unknown, never "none".
+satay
+pesto
+tiramisu
+gomae

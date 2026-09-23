@@ -1,0 +1,32 @@
+[project]
+name = "accel-harness"
+version = "0.1.0"
+description = "Token Factory decision harness — Accel AI Innovate Amsterdam"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi==0.115.12",
+  "uvicorn[standard]==0.34.2",
+  "jinja2==3.1.6",
+  "python-multipart==0.0.20",
+  "pydantic==2.11.4",
+  "pillow==11.2.1",
+  "pypdf==5.4.0",
+  "openai==1.76.2",
+  "httpx==0.28.1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==8.3.5",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["harness*", "web*", "skins*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

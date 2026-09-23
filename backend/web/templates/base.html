@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ wordmark }}</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <header class="top">
+    <span class="wordmark">{{ wordmark }}</span>
+    <span class="meta">{{ skin }}</span>
+    <span class="meta">{{ for_line }}</span>
+    <nav>
+      <form class="switch" method="post" action="/kill">
+        {% if demo_token_set %}
+        <label for="token_k">Demo token</label>
+        <input id="token_k" type="text" name="token" autocomplete="off">
+        {% endif %}
+        <button class="secondary" type="submit">
+          {% if frozen %}Recommendations frozen{% else %}Freeze recommendations{% endif %}
+        </button>
+      </form>
+      <a href="/eval">eval</a>
+      <a href="/">intake</a>
+    </nav>
+  </header>
+  {% block body %}{% endblock %}
+  <footer class="foot">{{ risk_tier }}</footer>
+  <script src="/static/app.js"></script>
+</body>
+</html>

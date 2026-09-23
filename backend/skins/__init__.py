@@ -1,0 +1,1 @@
+"""Standalone skins package."""

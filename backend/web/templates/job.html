@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block body %}
+<main class="work">
+  {% if job %}
+    <article class="card">
+      <p>
+        <span class="action {{ job.policy.action.value }}">{{ job.policy.action.value | upper }}</span>
+        <span class="operator">Model recommendation. You are the operator.</span>
+      </p>
+      {% if job.unconfigured %}<p class="hint">Judge unconfigured — Token Factory key not set.</p>{% endif %}
+      <h2>{{ job.display['title'] or "job" }}</h2>
+      <div class="desc">{{ job.display['description'] or "" }}</div>
+      <p class="codes">{{ job.policy.reason_codes | join(" · ") }}</p>
+      {% if job.generate_text %}<p class="desc">{{ job.generate_text }}</p>{% endif %}
+      <form method="post" action="/jobs/{{ job.id }}/accept" style="display:inline">
+        {% if demo_token_set %}
+        <label for="token_ja">Demo token</label>
+        <input id="token_ja" type="text" name="token" autocomplete="off">
+        {% endif %}
+        <button type="submit">Accept</button>
+      </form>
+      <form method="post" action="/jobs/{{ job.id }}/override" style="display:inline">
+        {% if demo_token_set %}
+        <label for="token_jo">Demo token</label>
+        <input id="token_jo" type="text" name="token" autocomplete="off">
+        {% endif %}
+        <button class="secondary" type="submit">Override to queue</button>
+      </form>
+    </article>
+  {% endif %}
+  {% if receipt %}
+    <p class="hint">Receipt {{ receipt.id }} · {{ receipt.ts }} · actor {{ receipt.actor }}</p>
+    <p class="codes">observe {{ receipt.model_ids.observe }} · judge {{ receipt.model_ids.judge }}</p>
+    <p><a href="/receipts/{{ receipt.id }}">raw json</a> · <a href="/exhibit/{{ receipt.id }}">exhibit.json</a></p>
+  {% endif %}
+  {% if reviews %}
+    <p class="codes">
+      {% for r in reviews %}{{ r.actor }} {{ r.name }} {{ r.decision }} {{ r.ts }}{% endfor %}
+    </p>
+  {% endif %}
+</main>
+{% endblock %}

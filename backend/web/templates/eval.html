@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block body %}
+<main class="work">
+  <h1>{{ report.skin }} eval</h1>
+  <p class="hint">n = {{ report.n }}. Do not invent numbers. Fixture ids only — no raw documents.</p>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">metric</th>
+        <th scope="col">proprietary</th>
+        <th scope="col">vanilla TF</th>
+        <th scope="col">ours</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for metric, vals in report.metrics.items() %}
+      <tr>
+        <th scope="row">{{ metric }}</th>
+        <td>{{ vals.proprietary }}</td>
+        <td>{{ vals.vanilla_tf }}</td>
+        <td>{{ vals.ours }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <p class="codes">ids: {{ report.fixture_ids | join(", ") }}</p>
+  <p class="hint">{{ report.notes }}</p>
+</main>
+{% endblock %}
