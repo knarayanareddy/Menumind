@@ -482,3 +482,6 @@ export const JUDGING_TEARDOWN_INSIGHTS = [
     keyRule: 'Models propose, code decides. Irreversible acts must be gated.',
   },
 ];
+
+import fiftyMenusData from './menus_50_dataset.json';
+export const FIFTY_RESTAURANT_FIXTURES: MenuFixture[] = fiftyMenusData as MenuFixture[];
