@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { Header } from './components/Header';
 import { MenuMindConsole } from './components/MenuMindConsole';
+import { AllergenMatrix } from './components/AllergenMatrix';
 import { RepoReview } from './components/RepoReview';
 import { EvalTable } from './components/EvalTable';
 import { PitchDeck } from './components/PitchDeck';
 import { Footer } from './components/Footer';
 
 export function App() {
-  const [activeTab, setActiveTab] = useState<'console' | 'repo' | 'eval' | 'deck'>('console');
+  const [activeTab, setActiveTab] = useState<'console' | 'matrix' | 'repo' | 'eval' | 'deck'>('console');
   const [killSwitchActive, setKillSwitchActive] = useState<boolean>(false);
 
   return (
@@ -24,6 +25,10 @@ export function App() {
       <main className="flex-1 py-4">
         {activeTab === 'console' && (
           <MenuMindConsole killSwitchActive={killSwitchActive} />
+        )}
+
+        {activeTab === 'matrix' && (
+          <AllergenMatrix />
         )}
 
         {activeTab === 'repo' && (

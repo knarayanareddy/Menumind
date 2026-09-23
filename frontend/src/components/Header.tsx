@@ -10,8 +10,8 @@ import {
 } from 'lucide-react';
 
 interface HeaderProps {
-  activeTab: 'console' | 'repo' | 'eval' | 'deck';
-  setActiveTab: (tab: 'console' | 'repo' | 'eval' | 'deck') => void;
+  activeTab: 'console' | 'matrix' | 'repo' | 'eval' | 'deck';
+  setActiveTab: (tab: 'console' | 'matrix' | 'repo' | 'eval' | 'deck') => void;
   killSwitchActive: boolean;
   setKillSwitchActive: (active: boolean) => void;
   isProcessing?: boolean;
@@ -100,6 +100,18 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
 
           <button
+            onClick={() => setActiveTab('matrix')}
+            className={`flex items-center gap-2 px-3 py-1.5 rounded-[2px] text-xs font-medium transition-all ${
+              activeTab === 'matrix'
+                ? 'bg-[var(--ink)] text-[var(--paper)] font-semibold shadow-xs'
+                : 'text-[var(--ink-soft)] hover:text-[var(--ink)] hover:bg-[var(--paper-2)]'
+            }`}
+          >
+            <BarChart3 className="w-3.5 h-3.5 text-amber-700" />
+            <span>2. 2D Allergen Matrix</span>
+          </button>
+
+          <button
             onClick={() => setActiveTab('repo')}
             className={`flex items-center gap-2 px-3 py-1.5 rounded-[2px] text-xs font-medium transition-all ${
               activeTab === 'repo'
@@ -108,7 +120,7 @@ export const Header: React.FC<HeaderProps> = ({
             }`}
           >
             <Code className="w-3.5 h-3.5" />
-            <span>2. 4PRD Repo & Harness Review</span>
+            <span>3. 4PRD Repo & Harness Review</span>
           </button>
 
           <button
@@ -120,7 +132,7 @@ export const Header: React.FC<HeaderProps> = ({
             }`}
           >
             <BarChart3 className="w-3.5 h-3.5" />
-            <span>3. Benchmark & Evals (/eval)</span>
+            <span>4. Benchmark & Evals (/eval)</span>
           </button>
 
           <button
@@ -132,7 +144,7 @@ export const Header: React.FC<HeaderProps> = ({
             }`}
           >
             <Presentation className="w-3.5 h-3.5" />
-            <span>4. Pitch Deck (4 Slides)</span>
+            <span>5. Pitch Deck (4 Slides)</span>
           </button>
         </nav>
       </div>
