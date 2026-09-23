@@ -1,0 +1,46 @@
+{
+  "restaurant": "Mana Mana Plant-Based Tel Aviv Street Food",
+  "city": "Amsterdam",
+  "street": "Eerste Jan Steenstraat 85, De Pijp",
+  "currency": "EUR",
+  "catalog_version": "2026.09-POS",
+  "items": [
+    {
+      "id": "mana-01",
+      "name": "Psychedelic Cauliflower",
+      "price": 13.5,
+      "description": "Whole roasted caramelized cauliflower head with green tahini, grated tomato, pomegranate molasses, chili.",
+      "allergens": [
+        "sesame"
+      ],
+      "allergen_notes": "Sesame tahini emulsion. Gluten-free, Nut-free, 100% Vegan.",
+      "publishable": true
+    },
+    {
+      "id": "mana-02",
+      "name": "Mana Shakshuka with Feta",
+      "price": 14.5,
+      "description": "Rich spiced tomato and roasted red pepper stew with poached farm eggs, Greek feta, fresh pita.",
+      "allergens": [
+        "eggs",
+        "milk",
+        "wheat"
+      ],
+      "allergen_notes": "Pita flatbread contains wheat gluten; feta contains sheep milk dairy.",
+      "publishable": true
+    },
+    {
+      "id": "mana-03",
+      "name": "Warm Hummus with Wild Mushrooms",
+      "price": 12,
+      "description": "Warm creamy chickpea hummus topped with sauteed king oyster mushrooms, pine nuts, sumac, pita.",
+      "allergens": [
+        "sesame",
+        "tree_nuts",
+        "wheat"
+      ],
+      "allergen_notes": "Tahini contains sesame; garnish contains pine nuts; served with wheat pita.",
+      "publishable": true
+    }
+  ]
+}

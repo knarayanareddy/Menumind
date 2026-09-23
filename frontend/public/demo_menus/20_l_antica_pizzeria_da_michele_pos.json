@@ -1,0 +1,44 @@
+{
+  "restaurant": "L'Antica Pizzeria da Michele",
+  "city": "Amsterdam",
+  "street": "Eerste Sweelinckstraat 20",
+  "currency": "EUR",
+  "catalog_version": "2026.09-POS",
+  "items": [
+    {
+      "id": "damichele-01",
+      "name": "Pizza Margherita DOP",
+      "price": 14,
+      "description": "San Marzano tomatoes, Fior di Latte d'Agerola, fresh basil, extra virgin olive oil.",
+      "allergens": [
+        "wheat",
+        "milk"
+      ],
+      "allergen_notes": "Traditional Caputo 00 wheat flour crust and cow's milk mozzarella.",
+      "publishable": true
+    },
+    {
+      "id": "damichele-02",
+      "name": "Pizza Marinara (Vegan Traditional)",
+      "price": 11.5,
+      "description": "San Marzano tomato sauce, fresh garlic, oregano, extra virgin olive oil. No cheese.",
+      "allergens": [
+        "wheat"
+      ],
+      "allergen_notes": "Wheat gluten only. 100% dairy-free and vegan.",
+      "publishable": true
+    },
+    {
+      "id": "damichele-03",
+      "name": "Calzone Ripieno Napoletano",
+      "price": 16.5,
+      "description": "Folded pizza pocket stuffed with cicoli pork, buffalo ricotta, provola, black pepper.",
+      "allergens": [
+        "wheat",
+        "milk"
+      ],
+      "allergen_notes": "Contains wheat gluten and buffalo milk dairy.",
+      "publishable": true
+    }
+  ]
+}
