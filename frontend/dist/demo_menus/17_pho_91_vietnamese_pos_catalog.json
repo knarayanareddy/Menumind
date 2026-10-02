@@ -1,0 +1,46 @@
+{
+  "restaurant": "Pho 91",
+  "city": "Amsterdam",
+  "street": "Albert Cuypstraat 91",
+  "currency": "EUR",
+  "catalog_version": "2026.09-POS",
+  "items": [
+    {
+      "id": "pho-01",
+      "name": "Pho Bo Tai (Rare Beef Noodle Soup)",
+      "price": 15.5,
+      "description": "12-hour simmered beef marrow broth, flat rice noodles, thinly sliced raw Irish flank steak, herbs.",
+      "allergens": [
+        "fish"
+      ],
+      "allergen_notes": "Nuoc mam (Vietnamese fish sauce) used in broth reduction.",
+      "publishable": true
+    },
+    {
+      "id": "pho-02",
+      "name": "Goi Cuon (Fresh Summer Rolls, 2 pcs)",
+      "price": 8.5,
+      "description": "Rice paper rolls packed with poached shrimp, pork, fresh mint, vermicelli noodles, peanut hoisin dip.",
+      "allergens": [
+        "crustaceans",
+        "peanuts",
+        "soy"
+      ],
+      "allergen_notes": "Dipping sauce contains crushed roasted peanuts and fermented soybean paste.",
+      "publishable": true
+    },
+    {
+      "id": "pho-03",
+      "name": "Bun Cha Gio (Crispy Spring Roll Bowl)",
+      "price": 16,
+      "description": "Warm vermicelli noodles, crispy fried pork spring rolls, shredded lettuce, cucumber, pickled carrots.",
+      "allergens": [
+        "fish",
+        "wheat",
+        "eggs"
+      ],
+      "allergen_notes": "Spring roll wrappers contain wheat flour; nuoc cham dip contains fish sauce.",
+      "publishable": true
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "restaurant": "Saravanaa Bhavan South Indian Pure Vegetarian",
+  "city": "Amsterdam",
+  "street": "Stadhouderskade 123",
+  "currency": "EUR",
+  "catalog_version": "2026.09-POS",
+  "items": [
+    {
+      "id": "sb-01",
+      "name": "Special Masala Dosa",
+      "price": 12.5,
+      "description": "Crispy fermented rice and black lentil crepe filled with spiced potato masala, served with sambar and fresh coconut chutneys.",
+      "allergens": [
+        "mustard",
+        "milk"
+      ],
+      "allergen_notes": "Tempered with black mustard seeds and ghee (clarified butter). Nut-free kitchen.",
+      "publishable": true
+    },
+    {
+      "id": "sb-02",
+      "name": "Medu Vada (3 pcs with Sambar)",
+      "price": 7.5,
+      "description": "Crispy savory fried lentil doughnuts seasoned with cracked black pepper, curry leaves, and ginger.",
+      "allergens": [
+        "mustard"
+      ],
+      "allergen_notes": "Tempered with mustard seeds in sambar broth. 100% Gluten-free.",
+      "publishable": true
+    },
+    {
+      "id": "sb-03",
+      "name": "Royal South Indian Thali",
+      "price": 18.5,
+      "description": "Traditional feast platter with 8 curries, sambar, rasam, curd, poori, rice, and payasam dessert.",
+      "allergens": [
+        "milk",
+        "wheat",
+        "mustard"
+      ],
+      "allergen_notes": "Poori contains wheat gluten; curd and payasam contain dairy milk.",
+      "publishable": true
+    }
+  ]
+}
